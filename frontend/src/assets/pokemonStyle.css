@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto',sans-serif;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 50px;
+}
+.header h1, .header h2{
+    font-weight: 400;
+}
+.pokemonContainer{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.pokemonCard{
+    width: 170px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s !important;
+    /* Desactivar el select de texto e imagen*/
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.pokemonCard div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.pokemonCard:hover{
+    background: rgb(240, 240, 240);
+    cursor: pointer;
+}
+.pokemonCard img{
+    width: 100px;
+}   
+.battleResultContainer{
+    width: 100%;
+    padding: 50px 0;
+    margin: 25px 0;
+    background: lightblue;
+}
+.battleResultContainer p{
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.battleContainer{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.battlePokemon img{
+    width: 250px;
+}
+
+.battlePokemon p{
+    margin: 10px 0 5px 0;
+}
+
+
+@media (max-width:900px){
+    .header h1, .header h2{
+        margin: 0 auto;
+    }
+    .pokemonContainer{
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .pokemonContainer .pokemonCard{
+        margin: 25px 0;
+    }
+}
+@media (max-width:768px){
+    .battlePokemon{
+        width: 100% !important;
+    }
+    .MuyPaper-root{
+        flex-direction: row !important;
+    }
+}
+@media (max-width:900px){
+    .pokemonCard{
+        width: 140px;
+    }
+}
