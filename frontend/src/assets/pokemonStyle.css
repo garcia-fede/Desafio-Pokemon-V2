@@ -98,3 +98,16 @@
         width: 140px;
     }
 }
+
+.fade {
+    animation: fade 0.5s forwards;
+}
+
+@keyframes fade {
+    from {
+        filter: blur(10px);
+    }
+    to {
+        filter: blur(0px);
+    }
+}
