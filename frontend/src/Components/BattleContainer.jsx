@@ -44,9 +44,10 @@ const BattleContainer = ({ selectedPokemon, pokemones }) => {
             }).finally(() => {
                 console.log("Fin del post");
             });
-        },3000)
+        },1500)
     }
 
+    // Elegir un enemigo aleatorio al cargar la página/actualizar los pokemones
     useEffect(() => {
         setRandomEnemy();
     }, [pokemones]);
@@ -60,6 +61,7 @@ const BattleContainer = ({ selectedPokemon, pokemones }) => {
 
         return () => clearTimeout(timeout);
     }, [selectedPokemon]);
+
     useEffect(() => {
         setEnemyFadeClass('fade');
         const timeout = setTimeout(() => {
@@ -75,7 +77,7 @@ const BattleContainer = ({ selectedPokemon, pokemones }) => {
                 <p>{mensajeBatalla}</p>
             </div>
             <div className="battleContainer">
-                <Card className={`battlePokemon selectedPokemon ${selectedFadeClass}`}>
+                <Card id='selectedPokemon' className={`battlePokemon selectedPokemon ${selectedFadeClass}`}>
                     <CardMedia
                         component="img"
                         alt={selectedPokemon.name}
@@ -94,6 +96,7 @@ const BattleContainer = ({ selectedPokemon, pokemones }) => {
                     </CardContent>
                 </Card>
                 <Button
+                    className='startButton'
                     onClick={() => { startBattle() }}
                     variant="contained"
                     color="success"
@@ -101,7 +104,7 @@ const BattleContainer = ({ selectedPokemon, pokemones }) => {
                     Start Battle
                 </Button>
                 {enemyPokemon && (
-                    <Card className={`battlePokemon selectedPokemon ${enemyFadeClass}`}>
+                    <Card className={`battlePokemon enemyPokemon ${enemyFadeClass}`}>
                         <CardMedia
                             component="img"
                             alt={enemyPokemon.name}

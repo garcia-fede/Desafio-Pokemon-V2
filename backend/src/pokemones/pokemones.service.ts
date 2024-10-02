@@ -8,6 +8,7 @@ import { Batalla } from './batalla.entity';
 export class PokemonesService {
     constructor(
         @InjectRepository(Pokemon) private pokemonRepository: Repository<Pokemon>,
+        @InjectRepository(Batalla) private batallaRepository: Repository<Batalla>
     ) {}
 
     //Función para listar todos los pokemones desde la DB
@@ -87,7 +88,14 @@ export class PokemonesService {
         }
 
         console.log("Resultado: ", result);
-        // this.saveBattle(result);
+        this.saveBattle(result);
         return result;
+    }
+
+    // Función para guardar resultado de la batalla en la DB
+
+    async saveBattle(result: Batalla) {
+        const savedBattle = await this.batallaRepository.save(result);
+        console.log('Resultado de la batalla guardado:', savedBattle);
     }
 }

@@ -71,7 +71,17 @@
 .battlePokemon p{
     margin: 10px 0 5px 0;
 }
-
+.fade {
+    animation: fade 0.5s forwards;
+}
+@keyframes fade {
+    from {
+        filter: blur(10px);
+    }
+    to {
+        filter: blur(0px);
+    }
+}
 
 @media (max-width:900px){
     .header h1, .header h2{
@@ -86,8 +96,27 @@
     }
 }
 @media (max-width:768px){
+    .battleContainer{
+        flex-direction: column;
+    }
     .battlePokemon{
         width: 100% !important;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .battlePokemon img{
+        width: 50%;
+        object-fit: contain;
+    }
+    .startButton{
+        order: 1;
+    }
+    .selectedPokemon{
+        order: 2;
+        margin-bottom: 20px;
+    }
+    .enemyPokemon{
+        order: 3;
     }
     .MuyPaper-root{
         flex-direction: row !important;
@@ -96,18 +125,5 @@
 @media (max-width:900px){
     .pokemonCard{
         width: 140px;
-    }
-}
-
-.fade {
-    animation: fade 0.5s forwards;
-}
-
-@keyframes fade {
-    from {
-        filter: blur(10px);
-    }
-    to {
-        filter: blur(0px);
     }
 }

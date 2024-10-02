@@ -41,7 +41,12 @@ const PokemonList = () => {
             <div className='pokemonContainer'>
                 {pokemones.map((pokemon,index)=>{
                     return (
-                        <Card onClick={()=>{setPokemon(pokemon)}} className='pokemonCard' key={index}> 
+                        <Card onClick={()=>{
+                            setPokemon(pokemon)
+                            document.getElementById('selectedPokemon').scrollIntoView({ behavior: 'smooth' });
+                            }} 
+                            className='pokemonCard' 
+                            key={index}> 
                             <CardContent>
                                 <img src={pokemon.imageUrl} alt={pokemon.name} />
                                 <h2>{pokemon.name}</h2>
