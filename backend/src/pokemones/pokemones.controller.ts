@@ -1,4 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { PokemonesService } from './pokemones.service';
 
 @Controller('pokemones')
-export class PokemonesController {}
+export class PokemonesController {
+
+    constructor(private pokemonesService: PokemonesService) {}
+
+    @Get()
+    findAll(){
+        return this.pokemonesService.findAll()
+    }
+}
