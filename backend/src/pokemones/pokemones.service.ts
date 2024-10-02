@@ -39,7 +39,6 @@ export class PokemonesService {
             if(enemyPokemon.hp>0){
                 return this.decideWinner(selectedPokemon,enemyPokemon, !selectedAttacks);
             } else{
-                // return `El ganador de la batalla es ${selectedPokemon.name}`
                 const winner = new Batalla()
                 winner.id = null;
                 winner.selectedPokemon = selectedPokemon.name;
@@ -54,7 +53,6 @@ export class PokemonesService {
             if(selectedPokemon.hp>0){ 
                     return this.decideWinner(selectedPokemon,enemyPokemon, !selectedAttacks);
             } else{
-                // return `El ganador de la batalla es ${enemyPokemon.name}`
                 const winner = new Batalla()
                 winner.id = null;
                 winner.selectedPokemon = enemyPokemon.name;
@@ -68,7 +66,6 @@ export class PokemonesService {
     // Invocar batalla de pokemones y decidir quien empieza donde "TRUE" equivale al pokemon seleccionado y "FALSE" equivale al pokemon rival
 
     battlePokemons(selectedPokemon,enemyPokemon){
-        console.log(selectedPokemon)
         let result : Batalla;
         
         if(selectedPokemon.speed>enemyPokemon.speed){

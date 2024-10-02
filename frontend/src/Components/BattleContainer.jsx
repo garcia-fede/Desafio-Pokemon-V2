@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 
 const BattleContainer = ({ selectedPokemon, pokemones }) => {
     const [enemyPokemon, setEnemyPokemon] = useState(pokemones[2]);
-    const [ganador, setGanador] = useState("");
     const [mensajeBatalla,setMensajeBatalla] = useState("Seleccione 2 pokemones para pelear.")
     
     const [selectedFadeClass, setSelectedFadeClass] = useState('');
@@ -34,12 +33,9 @@ const BattleContainer = ({ selectedPokemon, pokemones }) => {
             }).then((result) => {
                 console.log("Éxito: Se enviaron los pokemones ", selectedPokemon, " y ", newEnemy, " con éxito");
                 console.log("Resultado de la batalla:", result);
-                setGanador(result.data.ganador);
                 setMensajeBatalla("El ganador de la batalla es " + result.data.ganador + "!");
             }).catch((e) => {
                 console.log("Error: No se pudo enviar los pokemones");
-                console.log(selectedPokemon)
-                console.log(enemyPokemon)
                 console.log(e);
             }).finally(() => {
                 console.log("Fin del post");
@@ -52,7 +48,7 @@ const BattleContainer = ({ selectedPokemon, pokemones }) => {
         setRandomEnemy();
     }, [pokemones]);
 
-    // Activar animaciones cuando cambiar el pokemon
+    // Activar animaciones cuando cambia el pokemon
     useEffect(() => {
         setSelectedFadeClass('fade');
         const timeout = setTimeout(() => {
